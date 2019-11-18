@@ -15,7 +15,7 @@ import timber.log.Timber;
 
 public class MainActivity extends BaseActivity<ActivityMainBinding> implements IPresenter.View {
     private IPresenter.Listener presenter;
-    private RecyclerView RV;
+    //private RecyclerView RV;
     /*@Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,22 +48,46 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> implements I
 
     @Override
     public void initAdapter(List<Model> list) {
-        RV = (RecyclerView)findViewById(R.id.rvList);
+        /*RV = (RecyclerView)findViewById(R.id.rvList);
         LinearLayoutManager LM = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         AdapterExample AE = new AdapterExample(list, presenter);
         RV.setLayoutManager(LM);
-        RV.setAdapter(AE);
+        RV.setAdapter(AE);*/
 
         //getBinding().rvList
         //RV.
 
-        //getBinding().rvList.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
-        //getBinding().rvList.setAdapter(new AdapterExample(list, presenter));
+        getBinding().rvList.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
+        getBinding().rvList.setAdapter(new AdapterExample(list, presenter));
     }
 
     @Override
     public void message(Model model) {
         toast(model.getfName().concat(" ").concat(model.getlName()));
         Timber.e(model.getfName().concat(" ").concat(model.getlName()));
+    }
+
+    @Override
+    public int addItem() {
+        String str = getBinding().addField.getText().toString();
+        if (str == "") {
+            getBinding().addField.setText("");
+            return -1;
+        } else {
+            getBinding().addField.setText("");
+            return Integer.valueOf(str);
+        }
+    }
+
+    @Override
+    public int removeItem() {
+        String str = getBinding().removeField.getText().toString();
+        if (str == "") {
+            getBinding().removeField.setText("");
+            return -1;
+        } else {
+            getBinding().removeField.setText("");
+            return Integer.valueOf(str);
+        }
     }
 }

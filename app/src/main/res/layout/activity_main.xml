@@ -7,6 +7,9 @@
         <variable
             name="event"
             type="com.example.androidadapterjava.IPresenter.Listener" />
+        <variable
+            name="presenter"
+            type="com.example.androidadapterjava.Presenter" />
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -16,10 +19,132 @@
             android:id="@+id/rvList"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="120dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:listItem="@layout/rv_item"/>
+            tools:listItem="@layout/rv_item" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            app:layout_constraintBottom_toTopOf="@+id/rvList"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0">
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/addField"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:inputType="number"
+                android:layout_marginStart="106dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="284dp"
+                android:layout_marginBottom="64dp" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/addItemBtn"
+                android:layout_width="118dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="285dp"
+                android:layout_marginBottom="8dp"
+                android:onClick="@{() -> event.eventAddItem()}"
+                android:text="@string/addNewItem" />
+            <!--android:onClick="@{event.eventAddItem()}"-->
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/removeField"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:inputType="number"
+                android:layout_marginStart="238dp"
+                android:layout_marginTop="9dp"
+                android:layout_marginEnd="153dp"
+                android:layout_marginBottom="67dp" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/removeItemBtn"
+                android:layout_width="115dp"
+                android:layout_height="wrap_content"
+                android:text="@string/removeNewItem"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:onClick="@{() -> event.eventRemoveItem()}"
+                android:layout_marginStart="143dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="153dp"
+                android:layout_marginBottom="8dp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/totalListSize"
+                android:layout_width="126dp"
+                android:layout_height="46dp"
+                android:layout_above="@+id/removeAllItemsBtn"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="277dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="10dp" />
+            <!--android:text="@{presenter.getListSize()}"-->
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/numberForRemoveItem"
+                android:layout_width="88dp"
+                android:layout_height="36dp"
+                android:text="@string/text2"
+                android:layout_above="@+id/removeItemBtn"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="9dp"
+                android:layout_marginEnd="186dp"
+                android:layout_marginBottom="10dp" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/removeAllItemsBtn"
+                android:layout_width="115dp"
+                android:layout_height="wrap_content"
+                android:text="@string/removeAllItem"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="278dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/numberForAddItem"
+                android:layout_width="88dp"
+                android:layout_height="36dp"
+                android:text="@string/text1"
+                android:layout_above="@+id/addItemBtn"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="316dp"
+                android:layout_marginBottom="10dp" />
+
+        </RelativeLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 

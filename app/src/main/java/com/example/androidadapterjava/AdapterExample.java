@@ -31,4 +31,14 @@ public class AdapterExample extends RecyclerView.Adapter<ViewHolderExample> {
 
     @Override
     public int getItemCount() { return list.size(); }
+
+    public void addItem(List<Model> list) {
+        this.list = list;
+        notifyDataSetChanged();
+    }
+
+    public void removeItem(List<Model> list) {
+        this.list = list;
+        notifyDataSetChanged();
+    }
 }

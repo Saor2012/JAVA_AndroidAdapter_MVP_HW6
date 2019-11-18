@@ -8,11 +8,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.databinding.DataBindingUtil;
 //import androidx.databinding.ViewDataBinding;
 
+import com.example.androidadapterjava.databinding.ActivityMainBinding;
 import com.example.androidadapterjava.databinding.RvItemBinding;
 
 public class ViewHolderExample extends RecyclerView.ViewHolder {
     private IPresenter.Listener presenter;
     private RvItemBinding binding; //ItemBinding
+    private ActivityMainBinding mainBinding;
     private Context context;
 
 
@@ -34,4 +36,18 @@ public class ViewHolderExample extends RecyclerView.ViewHolder {
             });
         }
     }
+    public void addItem(int position) {
+        /*if ((mainBinding.addField.getText().toString()) != "")
+            mainBinding.addItemBtn.setOnClickListener(v -> {
+                presenter.eventAddItem(Integer.valueOf(mainBinding.addField.getText().toString()));
+            });*/
+    }
+
+    public void removeItem(int position) {
+        /*if ((mainBinding.removeField.getText().toString()) != "")
+            mainBinding.removeItemBtn.setOnClickListener(v -> {
+                presenter.eventRemoveItem(Integer.valueOf(mainBinding.removeField.getText().toString()));
+            });*/
+    }
+
 }

@@ -2,6 +2,8 @@ package com.example.androidadapterjava;
 
 import android.app.Application;
 
+import com.example.androidadapterjava.data.mock.Mock;
+
 import timber.log.Timber;
 
 public class App extends Application {
@@ -11,6 +13,6 @@ public class App extends Application {
         if (BuildConfig.DEBUG) {
             Timber.plant(new Timber.DebugTree());
         }
-
+        //Repository.getInstance();
     }
 }
